@@ -7,17 +7,33 @@ export function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitted(true);
-      setFormData({ name: "", email: "", message: "" });
-      setTimeout(() => setSubmitted(false), 3000);
-    }, 1500);
+
+    setFormError(null);
+
+    const email = formData.email.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+      setFormError("Please verify the email id you entered.");
+      return;
+    }
+
+    // NOTE: Frontend-only "email sending" isn't possible without a backend/email service.
+    // Instead, we open the user's mail client with a prefilled message.
+    setIsSubmitting(false);
+    setSubmitted(true);
+    setFormData({ name: "", email: "", message: "" });
+    setTimeout(() => setSubmitted(false), 3000);
+
+    const to = portfolioData.email; // sreehari9011@gmail.com
+    const subject = `Contact: ${formData.name || "New message"}`;
+    const body = `Name: ${formData.name}\nEmail: ${email}\n\nMessage:\n${formData.message}\n`;
+    const mailtoUrl = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoUrl;
   };
 
   return (
@@ -97,10 +113,18 @@ export function Contact() {
                 id="email"
                 required
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                onChange={(e) => {
+                  setFormError(null);
+                  setFormData({ ...formData, email: e.target.value });
+                }}
                 className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 focus:outline-none focus:border-zinc-600 focus:ring-1 focus:ring-zinc-600 transition-all"
                 placeholder="john@example.com"
               />
+              {formError ? (
+                <p className="mt-2 text-sm text-red-400" role="alert">
+                  {formError}
+                </p>
+              ) : null}
             </div>
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-zinc-400 mb-2">
