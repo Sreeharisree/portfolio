@@ -4,7 +4,7 @@ import { portfolioData } from "../data";
 
 export function Hero() {
   const handleDownload = () => {
-    const resumeUrl = "https://drive.google.com/uc?export=download&id=1fpglxOMiZAAEiKOp-fhOwqDTYHsylgqL";
+    const resumeUrl = "https://drive.google.com/uc?export=download&id=1u9oW0Eb72ToHf4rdc0RLjmHglT_m3ihT";
     window.open(resumeUrl, "_blank", "noopener,noreferrer");
   };
 
