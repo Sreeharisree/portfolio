@@ -1,39 +1,11 @@
 import { motion } from "motion/react";
 import { Download, Github, Linkedin, Mail, Twitter } from "lucide-react";
 import { portfolioData } from "../data";
-import { jsPDF } from "jspdf";
 
 export function Hero() {
   const handleDownload = () => {
-    const doc = new jsPDF();
-    
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(22);
-    doc.text(portfolioData.name, 20, 20);
-    
-    doc.setFont("helvetica", "normal");
-    doc.setFontSize(12);
-    doc.text(portfolioData.title, 20, 30);
-    doc.text(`${portfolioData.email} | ${portfolioData.phone}`, 20, 38);
-    
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(16);
-    doc.text("Summary", 20, 50);
-    
-    doc.setFont("helvetica", "normal");
-    doc.setFontSize(11);
-    const splitSummary = doc.splitTextToSize(portfolioData.summary, 170);
-    doc.text(splitSummary, 20, 58);
-    
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(16);
-    doc.text("Skills", 20, 90);
-    
-    doc.setFont("helvetica", "normal");
-    doc.setFontSize(11);
-    doc.text(portfolioData.skills.join(", "), 20, 98);
-    
-    doc.save("Sreehari_S_Resume.pdf");
+    const resumeUrl = "https://drive.google.com/uc?export=download&id=1fpglxOMiZAAEiKOp-fhOwqDTYHsylgqL";
+    window.open(resumeUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
