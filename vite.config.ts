@@ -4,8 +4,8 @@ import path from 'path';
 import {defineConfig} from 'vite';
 
 export default defineConfig({
-  // Relative asset paths avoid 404s on GitHub Pages/custom domain setups.
-  base: './',
+  // Project pages are served from /<repo-name>/ on GitHub Pages.
+  base: '/portfolio/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
