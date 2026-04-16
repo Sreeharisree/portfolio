@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Download, Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { Download, Github, Instagram, Linkedin, Mail, Twitter } from "lucide-react";
 import { portfolioData } from "../data";
 
 export function Hero() {
@@ -62,6 +62,14 @@ export function Hero() {
                 className="p-3 rounded-full border border-zinc-800 hover:border-zinc-500 hover:bg-zinc-800 transition-all"
               >
                 <Twitter size={20} />
+              </a>
+              <a
+                href="https://www.instagram.com/sree_hari_manu/"
+                target="_blank"
+                rel="noreferrer"
+                className="p-3 rounded-full border border-zinc-800 hover:border-zinc-500 hover:bg-zinc-800 transition-all"
+              >
+                <Instagram size={20} />
               </a>
             </div>
           </div>
