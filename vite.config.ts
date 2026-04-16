@@ -4,8 +4,8 @@ import path from 'path';
 import {defineConfig} from 'vite';
 
 export default defineConfig({
-  // Project pages are served from /<repo-name>/ on GitHub Pages.
-  base: '/portfolio/',
+  // Custom domain is served from the domain root, so keep asset URLs at `/`.
+  base: '/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
