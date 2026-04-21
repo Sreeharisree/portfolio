@@ -3,9 +3,28 @@ import { Download, Github, Instagram, Linkedin, Mail, Twitter } from "lucide-rea
 import { portfolioData } from "../data";
 
 export function Hero() {
-  const handleDownload = () => {
-    const resumeUrl = "https://drive.google.com/uc?export=download&id=1u9oW0Eb72ToHf4rdc0RLjmHglT_m3ihT";
-    window.open(resumeUrl, "_blank", "noopener,noreferrer");
+  const handleDownload = async () => {
+    const resumeUrl =
+      "https://docs.google.com/document/d/1d12PS7I1fCBBk1ePPOFcnb2oWXXgggzgMqHidzXhtKk/export?format=pdf";
+
+    try {
+      const response = await fetch(resumeUrl);
+      if (!response.ok) {
+        throw new Error("Failed to fetch resume PDF");
+      }
+
+      const pdfBlob = await response.blob();
+      const blobUrl = URL.createObjectURL(pdfBlob);
+      const link = document.createElement("a");
+      link.href = blobUrl;
+      link.download = "Sreehari-Resume.pdf";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(blobUrl);
+    } catch {
+      window.open(resumeUrl, "_blank", "noopener,noreferrer");
+    }
   };
 
   return (
