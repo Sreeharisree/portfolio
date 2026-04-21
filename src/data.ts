@@ -8,7 +8,9 @@ export const portfolioData = {
   skills: [
     "React Native",
     "React Js",
+    "Next.js",
     "JavaScript",
+    "TypeScript",
     "HTML-CSS",
     "Git",
     "Redux",
