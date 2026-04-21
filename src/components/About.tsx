@@ -1,7 +1,20 @@
 import { motion } from "motion/react";
+import type { ComponentType } from "react";
+import { Atom, Braces, Code2, FileCode2, GitBranch, Globe, RefreshCw, Smartphone } from "lucide-react";
 import { portfolioData } from "../data";
 
 export function About() {
+  const skillIcons: Record<string, ComponentType<{ className?: string }>> = {
+    "React Native": Smartphone,
+    "React Js": Atom,
+    "Next.js": Globe,
+    JavaScript: Braces,
+    TypeScript: FileCode2,
+    "HTML-CSS": Code2,
+    Git: GitBranch,
+    Redux: RefreshCw,
+  };
+
   return (
     <section id="about" className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto border-t border-zinc-800/50">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
@@ -32,18 +45,22 @@ export function About() {
           <div className="mb-16">
             <h3 className="text-xl font-medium mb-6 text-zinc-200">Core Expertise</h3>
             <div className="flex flex-wrap gap-3">
-              {portfolioData.skills.map((skill, index) => (
-                <motion.span
+              {portfolioData.skills.map((skill, index) => {
+                const SkillIcon = skillIcons[skill] ?? Code2;
+                return (
+                  <motion.span
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   key={skill}
-                  className="px-4 py-2 rounded-full border border-zinc-800 text-sm text-zinc-300 hover:border-zinc-500 hover:bg-zinc-800/50 transition-all cursor-default"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-zinc-800 text-sm text-zinc-300 hover:border-zinc-500 hover:bg-zinc-800/50 transition-all cursor-default"
                 >
+                  <SkillIcon className="h-4 w-4 text-zinc-400" />
                   {skill}
                 </motion.span>
-              ))}
+                );
+              })}
             </div>
           </div>
 
