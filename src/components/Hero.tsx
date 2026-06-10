@@ -5,7 +5,7 @@ import { portfolioData } from "../data";
 export function Hero() {
   const handleDownload = async () => {
     const resumeUrl =
-      "https://docs.google.com/document/d/1d12PS7I1fCBBk1ePPOFcnb2oWXXgggzgMqHidzXhtKk/export?format=pdf";
+      "https://drive.google.com/file/d/1Wsg0TNz3iDvt13ByQPbaJTjlVVh8G_Hf/view?usp=sharing";
 
     try {
       const response = await fetch(resumeUrl);
