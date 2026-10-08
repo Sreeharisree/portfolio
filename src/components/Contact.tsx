@@ -87,47 +87,47 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto border-t border-zinc-800/50">
+    <section id="contact" className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto border-t border-zinc-200/80 dark:border-zinc-800/50">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
         <div>
-          <h2 className="font-serif text-3xl md:text-4xl mb-6">Get in Touch</h2>
-          <div className="h-px w-12 bg-zinc-700 mb-8"></div>
-          <p className="text-zinc-400 mb-12 max-w-md leading-relaxed">
-            I'm currently open to new opportunities. Send me a message below and it will be delivered directly to my inbox at <span className="text-zinc-200 font-medium">{portfolioData.email}</span>.
+          <h2 className="font-serif text-3xl md:text-4xl mb-6 text-zinc-900 dark:text-zinc-50">Get in Touch</h2>
+          <div className="h-px w-12 bg-zinc-300 dark:bg-zinc-700 mb-8"></div>
+          <p className="text-zinc-600 dark:text-zinc-400 mb-12 max-w-md leading-relaxed">
+            I'm currently open to new opportunities. Send me a message below and it will be delivered directly to my inbox at <span className="text-zinc-900 dark:text-zinc-200 font-medium">{portfolioData.email}</span>.
           </p>
 
           <div className="space-y-6">
-            <div className="flex items-center gap-4 text-zinc-300">
-              <div className="w-12 h-12 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center">
-                <Mail size={20} className="text-zinc-400" />
+            <div className="flex items-center gap-4 text-zinc-700 dark:text-zinc-300">
+              <div className="w-12 h-12 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
+                <Mail size={20} className="text-zinc-500 dark:text-zinc-400" />
               </div>
               <div>
                 <p className="text-sm text-zinc-500 font-medium mb-1">Email</p>
-                <a href={`mailto:${portfolioData.email}`} className="hover:text-white transition-colors">
+                <a href={`mailto:${portfolioData.email}`} className="text-zinc-800 dark:text-zinc-200 hover:text-zinc-950 dark:hover:text-white transition-colors">
                   {portfolioData.email}
                 </a>
               </div>
             </div>
 
-            <div className="flex items-center gap-4 text-zinc-300">
-              <div className="w-12 h-12 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center">
-                <Phone size={20} className="text-zinc-400" />
+            <div className="flex items-center gap-4 text-zinc-700 dark:text-zinc-300">
+              <div className="w-12 h-12 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
+                <Phone size={20} className="text-zinc-500 dark:text-zinc-400" />
               </div>
               <div>
                 <p className="text-sm text-zinc-500 font-medium mb-1">Phone</p>
-                <a href={`tel:${portfolioData.phone}`} className="hover:text-white transition-colors">
+                <a href={`tel:${portfolioData.phone}`} className="text-zinc-800 dark:text-zinc-200 hover:text-zinc-950 dark:hover:text-white transition-colors">
                   {portfolioData.phone}
                 </a>
               </div>
             </div>
 
-            <div className="flex items-center gap-4 text-zinc-300">
-              <div className="w-12 h-12 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center">
-                <MapPin size={20} className="text-zinc-400" />
+            <div className="flex items-center gap-4 text-zinc-700 dark:text-zinc-300">
+              <div className="w-12 h-12 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
+                <MapPin size={20} className="text-zinc-500 dark:text-zinc-400" />
               </div>
               <div>
                 <p className="text-sm text-zinc-500 font-medium mb-1">Location</p>
-                <p>Kollam, Kerala, India</p>
+                <p className="text-zinc-800 dark:text-zinc-200">Kollam, Kerala, India</p>
               </div>
             </div>
           </div>
@@ -137,16 +137,16 @@ export function Contact() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-zinc-900/30 border border-zinc-800/50 rounded-3xl p-8 md:p-10"
+          className="bg-white/80 dark:bg-zinc-900/30 border border-zinc-200/90 dark:border-zinc-800/50 rounded-3xl p-8 md:p-10 shadow-xs dark:shadow-none"
         >
           {submitted ? (
             <div className="py-8 text-center space-y-6">
-              <div className="w-16 h-16 mx-auto rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+              <div className="w-16 h-16 mx-auto rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-500 dark:text-emerald-400">
                 <CheckCircle2 size={32} />
               </div>
               <div>
-                <h3 className="text-xl font-medium text-zinc-100 mb-2">Message Sent!</h3>
-                <p className="text-zinc-400 text-sm max-w-sm mx-auto leading-relaxed">
+                <h3 className="text-xl font-medium text-zinc-900 dark:text-zinc-100 mb-2">Message Sent!</h3>
+                <p className="text-zinc-600 dark:text-zinc-400 text-sm max-w-sm mx-auto leading-relaxed">
                   {successNotice || `Your message has been delivered to ${portfolioData.email}. I'll get back to you shortly.`}
                 </p>
               </div>
@@ -156,7 +156,7 @@ export function Contact() {
                   setSubmitted(false);
                   setSuccessNotice(null);
                 }}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-zinc-700 text-sm font-medium text-zinc-300 hover:text-white hover:border-zinc-500 transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-zinc-300 dark:border-zinc-700 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:border-zinc-400 dark:hover:border-zinc-500 transition-colors cursor-pointer"
               >
                 Send Another Message
               </button>
@@ -164,7 +164,7 @@ export function Contact() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-zinc-400 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-zinc-700 dark:text-zinc-400 mb-2">
                   Name
                 </label>
                 <input
@@ -176,12 +176,12 @@ export function Contact() {
                     setFormError(null);
                     setFormData({ ...formData, name: e.target.value });
                   }}
-                  className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 focus:outline-none focus:border-zinc-600 focus:ring-1 focus:ring-zinc-600 transition-all placeholder:text-zinc-600"
+                  className="w-full bg-zinc-50/50 dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-800 rounded-xl px-4 py-3 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:border-zinc-500 dark:focus:border-zinc-600 focus:ring-1 focus:ring-zinc-500 dark:focus:ring-zinc-600 transition-all placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
                   placeholder="Your Name"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-zinc-400 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-zinc-700 dark:text-zinc-400 mb-2">
                   Email
                 </label>
                 <input
@@ -193,12 +193,12 @@ export function Contact() {
                     setFormError(null);
                     setFormData({ ...formData, email: e.target.value });
                   }}
-                  className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 focus:outline-none focus:border-zinc-600 focus:ring-1 focus:ring-zinc-600 transition-all placeholder:text-zinc-600"
+                  className="w-full bg-zinc-50/50 dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-800 rounded-xl px-4 py-3 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:border-zinc-500 dark:focus:border-zinc-600 focus:ring-1 focus:ring-zinc-500 dark:focus:ring-zinc-600 transition-all placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
                   placeholder="your.email@example.com"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-zinc-400 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-zinc-700 dark:text-zinc-400 mb-2">
                   Message
                 </label>
                 <textarea
@@ -210,21 +210,21 @@ export function Contact() {
                     setFormError(null);
                     setFormData({ ...formData, message: e.target.value });
                   }}
-                  className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 focus:outline-none focus:border-zinc-600 focus:ring-1 focus:ring-zinc-600 transition-all resize-none placeholder:text-zinc-600"
+                  className="w-full bg-zinc-50/50 dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-800 rounded-xl px-4 py-3 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:border-zinc-500 dark:focus:border-zinc-600 focus:ring-1 focus:ring-zinc-500 dark:focus:ring-zinc-600 transition-all resize-none placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
                   placeholder="How can I help you?"
                 ></textarea>
               </div>
 
               {formError && (
-                <div className="p-4 rounded-xl bg-red-950/40 border border-red-900/50 text-red-300 text-sm flex flex-col gap-3">
+                <div className="p-4 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/50 text-red-700 dark:text-red-300 text-sm flex flex-col gap-3">
                   <div className="flex items-start gap-2.5">
-                    <AlertCircle size={18} className="shrink-0 mt-0.5 text-red-400" />
+                    <AlertCircle size={18} className="shrink-0 mt-0.5 text-red-500 dark:text-red-400" />
                     <p>{formError}</p>
                   </div>
                   <button
                     type="button"
                     onClick={handleMailtoFallback}
-                    className="self-start text-xs underline font-medium hover:text-red-200 transition-colors"
+                    className="self-start text-xs underline font-medium hover:text-red-800 dark:hover:text-red-200 transition-colors"
                   >
                     Open email client with prefilled message →
                   </button>
@@ -234,7 +234,7 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex items-center justify-center gap-2 bg-zinc-100 text-zinc-950 py-4 rounded-xl font-medium hover:bg-white transition-colors disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
+                className="w-full flex items-center justify-center gap-2 bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-950 py-4 rounded-xl font-medium dark:hover:bg-white transition-colors disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer shadow-xs"
               >
                 {isSubmitting ? (
                   <>

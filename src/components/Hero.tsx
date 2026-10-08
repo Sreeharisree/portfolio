@@ -39,20 +39,20 @@ export function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="order-2 lg:order-1"
         >
-          <h2 className="text-zinc-400 tracking-widest uppercase text-sm font-medium mb-4">
+          <h2 className="text-zinc-500 dark:text-zinc-400 tracking-widest uppercase text-sm font-medium mb-4">
             {portfolioData.title}
           </h2>
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium leading-tight mb-6">
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium leading-tight mb-6 text-zinc-900 dark:text-zinc-50">
             {portfolioData.name}
           </h1>
-          <p className="text-zinc-400 text-lg md:text-xl max-w-xl leading-relaxed mb-10 font-light">
+          <p className="text-zinc-600 dark:text-zinc-400 text-lg md:text-xl max-w-xl leading-relaxed mb-10 font-light">
             {portfolioData.summary}
           </p>
 
           <div className="flex flex-wrap items-center gap-6">
             <button
               onClick={handleDownload}
-              className="flex items-center gap-2 bg-zinc-100 text-zinc-950 px-6 py-3 rounded-full font-medium hover:bg-white transition-colors"
+              className="flex items-center gap-2 bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-950 px-6 py-3 rounded-full font-medium dark:hover:bg-white transition-colors cursor-pointer shadow-xs"
             >
               <Download size={18} />
               Download Resume
@@ -62,7 +62,8 @@ export function Hero() {
                 href={portfolioData.social.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="p-3 rounded-full border border-zinc-800 hover:border-zinc-500 hover:bg-zinc-800 transition-all"
+                aria-label="LinkedIn"
+                className="p-3 rounded-full border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:border-zinc-400 dark:hover:border-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all"
               >
                 <Linkedin size={20} />
               </a>
@@ -70,7 +71,8 @@ export function Hero() {
                 href={portfolioData.social.github}
                 target="_blank"
                 rel="noreferrer"
-                className="p-3 rounded-full border border-zinc-800 hover:border-zinc-500 hover:bg-zinc-800 transition-all"
+                aria-label="GitHub"
+                className="p-3 rounded-full border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:border-zinc-400 dark:hover:border-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all"
               >
                 <Github size={20} />
               </a>
@@ -78,7 +80,8 @@ export function Hero() {
                 href={portfolioData.social.twitter}
                 target="_blank"
                 rel="noreferrer"
-                className="p-3 rounded-full border border-zinc-800 hover:border-zinc-500 hover:bg-zinc-800 transition-all"
+                aria-label="Twitter"
+                className="p-3 rounded-full border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:border-zinc-400 dark:hover:border-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all"
               >
                 <Twitter size={20} />
               </a>
@@ -86,7 +89,8 @@ export function Hero() {
                 href="https://www.instagram.com/sree_hari_manu/"
                 target="_blank"
                 rel="noreferrer"
-                className="p-3 rounded-full border border-zinc-800 hover:border-zinc-500 hover:bg-zinc-800 transition-all"
+                aria-label="Instagram"
+                className="p-3 rounded-full border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:border-zinc-400 dark:hover:border-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all"
               >
                 <Instagram size={20} />
               </a>
@@ -100,9 +104,9 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
           className="order-1 lg:order-2 flex justify-center lg:justify-end"
         >
-          <div className="relative w-64 h-80 md:w-80 md:h-[28rem] rounded-full overflow-hidden border border-zinc-800 p-2">
+          <div className="relative w-64 h-80 md:w-80 md:h-[28rem] rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 p-2 bg-zinc-100/50 dark:bg-zinc-900/50">
             <div className="w-full h-full rounded-full overflow-hidden relative">
-              <div className="absolute inset-0 bg-zinc-900/20 mix-blend-overlay z-10"></div>
+              <div className="absolute inset-0 bg-zinc-900/10 dark:bg-zinc-900/20 mix-blend-overlay z-10"></div>
               <img
                 src={portfolioData.photo}
                 alt={portfolioData.name}
