@@ -137,4 +137,5 @@ export const portfolioData = {
   },
  
   photo: " https://drive.google.com/thumbnail?id=1LhPncJR-nNpD3dYNo4z8ETp7lClDntkZ&sz=w1000",
+  resumeDriveId: "1Ctt1w7wzTjGg6kgghGeZ6ysRD69ujMEa",
 };

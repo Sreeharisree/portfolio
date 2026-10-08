@@ -4,13 +4,13 @@ import { portfolioData } from "../data";
 
 export function Hero() {
   const handleDownload = async () => {
-    const resumeUrl =
-      "https://drive.google.com/uc?export=download&id=1Wsg0TNz3iDvt13ByQPbaJTjlVVh8G_Hf";
+    const resumeId = portfolioData.resumeDriveId || "1Ctt1w7wzTjGg6kgghGeZ6ysRD69ujMEa";
+    const resumeUrl = `https://drive.google.com/uc?export=download&id=${resumeId}`;
 
     try {
       const response = await fetch(resumeUrl);
       if (!response.ok) {
-        throw new Error("Failed to fetch resume PDF");
+        throw new Error("Failed to fetch resume PDF directly");
       }
 
       const pdfBlob = await response.blob();
