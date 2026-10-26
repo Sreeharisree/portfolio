@@ -303,8 +303,10 @@ export function Hero() {
             className="p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 bg-white/60 dark:bg-[#111827]/40 backdrop-blur-sm shadow-xs hover:border-[#61dafb]/40 transition-colors"
           >
             <span className="font-mono text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tabular-nums">
-              {metric.value.replace("+", "")}
-              <span className="text-[#0284c7] dark:text-[#61dafb]">{metric.value.includes("+") ? "+" : "%"}</span>
+              {metric.value.replace(/[^0-9]/g, "")}
+              <span className="text-[#0284c7] dark:text-[#61dafb]">
+                {metric.value.includes("+") ? "+" : "%"}
+              </span>
             </span>
             <p className="text-sm font-bold text-slate-800 dark:text-slate-200 mt-1">
               {metric.label}
