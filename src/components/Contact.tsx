@@ -1,6 +1,6 @@
 import { useState, FormEvent } from "react";
 import { motion } from "motion/react";
-import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Loader2, Globe, MessageSquare } from "lucide-react";
 import { portfolioData } from "../data";
 
 export function Contact() {
@@ -87,67 +87,113 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto border-t border-zinc-200/80 dark:border-zinc-800/50">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-        <div>
-          <h2 className="font-serif text-3xl md:text-4xl mb-6 text-zinc-900 dark:text-zinc-50">Get in Touch</h2>
-          <div className="h-px w-12 bg-zinc-300 dark:bg-zinc-700 mb-8"></div>
-          <p className="text-zinc-600 dark:text-zinc-400 mb-12 max-w-md leading-relaxed">
-            I'm currently open to new opportunities. Send me a message below and it will be delivered directly to my inbox at <span className="text-zinc-900 dark:text-zinc-200 font-medium">{portfolioData.email}</span>.
-          </p>
-
-          <div className="space-y-6">
-            <div className="flex items-center gap-4 text-zinc-700 dark:text-zinc-300">
-              <div className="w-12 h-12 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
-                <Mail size={20} className="text-zinc-500 dark:text-zinc-400" />
-              </div>
-              <div>
-                <p className="text-sm text-zinc-500 font-medium mb-1">Email</p>
-                <a href={`mailto:${portfolioData.email}`} className="text-zinc-800 dark:text-zinc-200 hover:text-zinc-950 dark:hover:text-white transition-colors">
-                  {portfolioData.email}
-                </a>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4 text-zinc-700 dark:text-zinc-300">
-              <div className="w-12 h-12 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
-                <Phone size={20} className="text-zinc-500 dark:text-zinc-400" />
-              </div>
-              <div>
-                <p className="text-sm text-zinc-500 font-medium mb-1">Phone</p>
-                <a href={`tel:${portfolioData.phone}`} className="text-zinc-800 dark:text-zinc-200 hover:text-zinc-950 dark:hover:text-white transition-colors">
-                  {portfolioData.phone}
-                </a>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4 text-zinc-700 dark:text-zinc-300">
-              <div className="w-12 h-12 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
-                <MapPin size={20} className="text-zinc-500 dark:text-zinc-400" />
-              </div>
-              <div>
-                <p className="text-sm text-zinc-500 font-medium mb-1">Location</p>
-                <p className="text-zinc-800 dark:text-zinc-200">Kollam, Kerala, India</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <motion.div
+    <section id="contact" className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto border-t border-slate-200 dark:border-slate-800/80">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14">
+        {/* Left Column: Direct Contact Info */}
+        <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-white/80 dark:bg-zinc-900/30 border border-zinc-200/90 dark:border-zinc-800/50 rounded-3xl p-8 md:p-10 shadow-xs dark:shadow-none"
+          transition={{ duration: 0.5 }}
+          className="lg:col-span-5 flex flex-col justify-between"
+        >
+          <div>
+            <div className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-[#0284c7] dark:text-[#61dafb] font-semibold mb-2">
+              <MessageSquare size={14} />
+              <span>Direct Inquiries</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4">
+              Get in Touch
+            </h2>
+            <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
+              Available for Senior Software Engineer roles, mobile consulting, and collaborative React Native projects.
+            </p>
+
+            <div className="space-y-4">
+              <motion.a
+                whileHover={{ x: 4 }}
+                href={`mailto:${portfolioData.email}`}
+                className="flex items-center gap-4 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] hover:border-[#61dafb]/40 transition-colors group shadow-2xs"
+              >
+                <div className="w-11 h-11 rounded-xl bg-[#61dafb]/10 text-[#0284c7] dark:text-[#61dafb] flex items-center justify-center shrink-0">
+                  <Mail size={18} />
+                </div>
+                <div>
+                  <p className="text-[11px] font-mono text-slate-400 dark:text-slate-500 font-medium">Email Address</p>
+                  <p className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 group-hover:text-[#0284c7] dark:group-hover:text-[#61dafb] transition-colors">
+                    {portfolioData.email}
+                  </p>
+                </div>
+              </motion.a>
+
+              <motion.a
+                whileHover={{ x: 4 }}
+                href={`tel:${portfolioData.phone}`}
+                className="flex items-center gap-4 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] hover:border-[#61dafb]/40 transition-colors group shadow-2xs"
+              >
+                <div className="w-11 h-11 rounded-xl bg-[#61dafb]/10 text-[#0284c7] dark:text-[#61dafb] flex items-center justify-center shrink-0">
+                  <Phone size={18} />
+                </div>
+                <div>
+                  <p className="text-[11px] font-mono text-slate-400 dark:text-slate-500 font-medium">Phone</p>
+                  <p className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 group-hover:text-[#0284c7] dark:group-hover:text-[#61dafb] transition-colors">
+                    {portfolioData.phone}
+                  </p>
+                </div>
+              </motion.a>
+
+              <div className="flex items-center gap-4 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] shadow-2xs">
+                <div className="w-11 h-11 rounded-xl bg-[#61dafb]/10 text-[#0284c7] dark:text-[#61dafb] flex items-center justify-center shrink-0">
+                  <MapPin size={18} />
+                </div>
+                <div>
+                  <p className="text-[11px] font-mono text-slate-400 dark:text-slate-500 font-medium">Location</p>
+                  <p className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">
+                    {portfolioData.address}
+                  </p>
+                </div>
+              </div>
+
+              <motion.a
+                whileHover={{ x: 4 }}
+                href={portfolioData.website}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-4 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] hover:border-[#61dafb]/40 transition-colors group shadow-2xs"
+              >
+                <div className="w-11 h-11 rounded-xl bg-[#61dafb]/10 text-[#0284c7] dark:text-[#61dafb] flex items-center justify-center shrink-0">
+                  <Globe size={18} />
+                </div>
+                <div>
+                  <p className="text-[11px] font-mono text-slate-400 dark:text-slate-500 font-medium">Custom Domain</p>
+                  <p className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 group-hover:text-[#0284c7] dark:group-hover:text-[#61dafb] transition-colors">
+                    sreeharis.co.in
+                  </p>
+                </div>
+              </motion.a>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Right Column: Contact Form */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="lg:col-span-7 p-8 sm:p-9 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] shadow-sm"
         >
           {submitted ? (
-            <div className="py-8 text-center space-y-6">
-              <div className="w-16 h-16 mx-auto rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-500 dark:text-emerald-400">
-                <CheckCircle2 size={32} />
+            <div className="py-12 text-center space-y-4">
+              <div className="w-14 h-14 mx-auto rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-500">
+                <CheckCircle2 size={28} />
               </div>
-              <div>
-                <h3 className="text-xl font-medium text-zinc-900 dark:text-zinc-100 mb-2">Message Sent!</h3>
-                <p className="text-zinc-600 dark:text-zinc-400 text-sm max-w-sm mx-auto leading-relaxed">
-                  {successNotice || `Your message has been delivered to ${portfolioData.email}. I'll get back to you shortly.`}
+              <div className="space-y-1.5">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
+                  Message Delivered
+                </h3>
+                <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm max-w-sm mx-auto leading-relaxed">
+                  {successNotice || `Your note was routed directly to ${portfolioData.email}. I'll respond as soon as possible.`}
                 </p>
               </div>
               <button
@@ -156,16 +202,16 @@ export function Contact() {
                   setSubmitted(false);
                   setSuccessNotice(null);
                 }}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-zinc-300 dark:border-zinc-700 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:border-zinc-400 dark:hover:border-zinc-500 transition-colors cursor-pointer"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 text-xs font-bold text-slate-700 dark:text-slate-300 hover:border-[#61dafb] hover:text-[#0284c7] dark:hover:text-[#61dafb] transition-colors cursor-pointer"
               >
                 Send Another Message
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4.5">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-zinc-700 dark:text-zinc-400 mb-2">
-                  Name
+                <label htmlFor="name" className="block text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5 font-semibold">
+                  Full Name
                 </label>
                 <input
                   type="text"
@@ -176,13 +222,14 @@ export function Contact() {
                     setFormError(null);
                     setFormData({ ...formData, name: e.target.value });
                   }}
-                  className="w-full bg-zinc-50/50 dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-800 rounded-xl px-4 py-3 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:border-zinc-500 dark:focus:border-zinc-600 focus:ring-1 focus:ring-zinc-500 dark:focus:ring-zinc-600 transition-all placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
-                  placeholder="Your Name"
+                  className="w-full bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:outline-none focus:border-[#61dafb] focus:ring-2 focus:ring-[#61dafb]/10 transition-all"
+                  placeholder="e.g. John Doe"
                 />
               </div>
+
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-zinc-700 dark:text-zinc-400 mb-2">
-                  Email
+                <label htmlFor="email" className="block text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5 font-semibold">
+                  Email Address
                 </label>
                 <input
                   type="email"
@@ -193,12 +240,13 @@ export function Contact() {
                     setFormError(null);
                     setFormData({ ...formData, email: e.target.value });
                   }}
-                  className="w-full bg-zinc-50/50 dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-800 rounded-xl px-4 py-3 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:border-zinc-500 dark:focus:border-zinc-600 focus:ring-1 focus:ring-zinc-500 dark:focus:ring-zinc-600 transition-all placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
-                  placeholder="your.email@example.com"
+                  className="w-full bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:outline-none focus:border-[#61dafb] focus:ring-2 focus:ring-[#61dafb]/10 transition-all"
+                  placeholder="john@company.com"
                 />
               </div>
+
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-zinc-700 dark:text-zinc-400 mb-2">
+                <label htmlFor="message" className="block text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5 font-semibold">
                   Message
                 </label>
                 <textarea
@@ -210,43 +258,46 @@ export function Contact() {
                     setFormError(null);
                     setFormData({ ...formData, message: e.target.value });
                   }}
-                  className="w-full bg-zinc-50/50 dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-800 rounded-xl px-4 py-3 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:border-zinc-500 dark:focus:border-zinc-600 focus:ring-1 focus:ring-zinc-500 dark:focus:ring-zinc-600 transition-all resize-none placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
-                  placeholder="How can I help you?"
-                ></textarea>
+                  className="w-full bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:outline-none focus:border-[#61dafb] focus:ring-2 focus:ring-[#61dafb]/10 transition-all resize-none"
+                  placeholder="Tell me about your mobile project, tech stack, or open role..."
+                />
               </div>
 
               {formError && (
-                <div className="p-4 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/50 text-red-700 dark:text-red-300 text-sm flex flex-col gap-3">
-                  <div className="flex items-start gap-2.5">
-                    <AlertCircle size={18} className="shrink-0 mt-0.5 text-red-500 dark:text-red-400" />
-                    <p>{formError}</p>
+                <div className="p-4 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/50 text-red-700 dark:text-red-300 text-xs flex flex-col gap-1.5">
+                  <div className="flex items-start gap-2">
+                    <AlertCircle size={15} className="shrink-0 mt-0.5 text-red-500" />
+                    <span>{formError}</span>
                   </div>
                   <button
                     type="button"
                     onClick={handleMailtoFallback}
-                    className="self-start text-xs underline font-medium hover:text-red-800 dark:hover:text-red-200 transition-colors"
+                    className="self-start text-[11px] underline font-medium hover:text-red-900 dark:hover:text-red-100"
                   >
-                    Open email client with prefilled message →
+                    Open email client instead →
                   </button>
                 </div>
               )}
 
-              <button
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex items-center justify-center gap-2 bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-950 py-4 rounded-xl font-medium dark:hover:bg-white transition-colors disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer shadow-xs"
+                className="w-full flex items-center justify-center gap-2 bg-[#61dafb] hover:bg-[#38bdf8] text-[#0b0f19] py-4 rounded-xl font-extrabold text-sm transition-all shadow-md hover:shadow-[#61dafb]/20 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <>
-                    <Loader2 size={18} className="animate-spin" />
+                    <Loader2 size={16} className="animate-spin text-[#0b0f19]" />
                     Sending to {portfolioData.email}...
                   </>
                 ) : (
                   <>
-                    Send Message <Send size={18} />
+                    Send Message
+                    <Send size={15} />
                   </>
                 )}
-              </button>
+              </motion.button>
             </form>
           )}
         </motion.div>
@@ -254,4 +305,3 @@ export function Contact() {
     </section>
   );
 }
-

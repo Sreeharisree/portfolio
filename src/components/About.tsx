@@ -1,88 +1,216 @@
 import { motion } from "motion/react";
-import type { ComponentType } from "react";
-import { Atom, Braces, Code2, FileCode2, GitBranch, Globe, RefreshCw, Smartphone } from "lucide-react";
+import { 
+  GraduationCap, 
+  Languages, 
+  User, 
+  Layers, 
+  Sparkles, 
+  Heart,
+  CheckCircle2,
+  Cpu
+} from "lucide-react";
 import { portfolioData } from "../data";
 
 export function About() {
-  const skillIcons: Record<string, ComponentType<{ className?: string }>> = {
-    "React Native": Smartphone,
-    "React Js": Atom,
-    "Next.js": Globe,
-    JavaScript: Braces,
-    TypeScript: FileCode2,
-    "HTML-CSS": Code2,
-    Git: GitBranch,
-    Redux: RefreshCw,
-  };
-
   return (
-    <section id="about" className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto border-t border-zinc-200/80 dark:border-zinc-800/50">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
-        <div className="lg:col-span-4">
-          <h2 className="font-serif text-3xl md:text-4xl mb-6 text-zinc-900 dark:text-zinc-50">About Me</h2>
-          <div className="h-px w-12 bg-zinc-300 dark:bg-zinc-700 mb-8"></div>
-          <div className="space-y-4 text-sm text-zinc-600 dark:text-zinc-400">
-            <div className="flex justify-between border-b border-zinc-200 dark:border-zinc-800/50 pb-2">
-              <span className="text-zinc-500">DOB</span>
-              <span className="text-zinc-800 dark:text-zinc-200 font-medium">{portfolioData.personal.dob}</span>
+    <section id="about" className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto border-t border-slate-200 dark:border-slate-800/80">
+      {/* Section Header */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="max-w-2xl mb-16"
+      >
+        <div className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-[#0284c7] dark:text-[#61dafb] font-semibold mb-2">
+          <Cpu size={14} />
+          <span>Professional Background</span>
+        </div>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          About & Engineering Stack
+        </h2>
+        <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-2.5 leading-relaxed">
+          Detailed profile of mobile and web expertise, production architectures, and engineering methodologies.
+        </p>
+      </motion.div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
+        {/* Left Column: Personal Dossier, Languages, Education */}
+        <div className="lg:col-span-5 space-y-7">
+          {/* Personal Dossier */}
+          <motion.div 
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -3 }}
+            transition={{ duration: 0.3 }}
+            className="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] shadow-xs hover:border-[#61dafb]/40 transition-colors"
+          >
+            <div className="flex items-center gap-2 mb-4 pb-3 border-b border-slate-100 dark:border-slate-800">
+              <User size={16} className="text-[#0284c7] dark:text-[#61dafb]" />
+              <h3 className="font-bold text-sm text-slate-900 dark:text-slate-100">
+                Personal Profile
+              </h3>
             </div>
-            <div className="flex justify-between border-b border-zinc-200 dark:border-zinc-800/50 pb-2">
-              <span className="text-zinc-500">Nationality</span>
-              <span className="text-zinc-800 dark:text-zinc-200 font-medium">{portfolioData.personal.nationality}</span>
+
+            <dl className="space-y-3.5 text-xs sm:text-sm">
+              <div className="flex justify-between items-baseline">
+                <dt className="text-slate-500 dark:text-slate-400">Date of Birth</dt>
+                <dd className="font-mono text-slate-800 dark:text-slate-200 font-medium">
+                  {portfolioData.personal.dob}
+                </dd>
+              </div>
+              <div className="flex justify-between items-baseline">
+                <dt className="text-slate-500 dark:text-slate-400">Nationality</dt>
+                <dd className="font-medium text-slate-800 dark:text-slate-200">
+                  {portfolioData.personal.nationality}
+                </dd>
+              </div>
+              <div className="flex justify-between items-baseline">
+                <dt className="text-slate-500 dark:text-slate-400">Location</dt>
+                <dd className="font-medium text-slate-800 dark:text-slate-200">
+                  {portfolioData.address}
+                </dd>
+              </div>
+            </dl>
+          </motion.div>
+
+          {/* Languages */}
+          <motion.div 
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -3 }}
+            transition={{ duration: 0.3 }}
+            className="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] shadow-xs hover:border-[#61dafb]/40 transition-colors"
+          >
+            <div className="flex items-center gap-2 mb-4 pb-3 border-b border-slate-100 dark:border-slate-800">
+              <Languages size={16} className="text-[#0284c7] dark:text-[#61dafb]" />
+              <h3 className="font-bold text-sm text-slate-900 dark:text-slate-100">
+                Languages & CEFR Levels
+              </h3>
             </div>
-            <div className="flex justify-between border-b border-zinc-200 dark:border-zinc-800/50 pb-2">
-              <span className="text-zinc-500">Languages</span>
-              <span className="text-zinc-800 dark:text-zinc-200 font-medium">{portfolioData.personal.languages}</span>
+
+            <div className="space-y-3.5">
+              {portfolioData.languages.map((lang) => (
+                <div key={lang.name} className="flex items-center justify-between text-xs sm:text-sm">
+                  <div className="flex items-center gap-2">
+                    <span className="font-medium text-slate-800 dark:text-slate-200">{lang.name}</span>
+                    <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-[#61dafb]/10 text-[#0284c7] dark:text-[#61dafb] border border-[#61dafb]/20 font-bold">
+                      {lang.level}
+                    </span>
+                  </div>
+                  <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                    {lang.proficiency}
+                  </span>
+                </div>
+              ))}
             </div>
-            <div className="flex justify-between border-b border-zinc-200 dark:border-zinc-800/50 pb-2">
-              <span className="text-zinc-500">Hobbies</span>
-              <span className="text-zinc-800 dark:text-zinc-200 font-medium text-right max-w-[150px]">{portfolioData.personal.hobbies}</span>
+          </motion.div>
+
+          {/* Education */}
+          <motion.div 
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -3 }}
+            transition={{ duration: 0.3 }}
+            className="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] shadow-xs hover:border-[#61dafb]/40 transition-colors"
+          >
+            <div className="flex items-center gap-2 mb-4 pb-3 border-b border-slate-100 dark:border-slate-800">
+              <GraduationCap size={16} className="text-[#0284c7] dark:text-[#61dafb]" />
+              <h3 className="font-bold text-sm text-slate-900 dark:text-slate-100">
+                Education
+              </h3>
             </div>
-          </div>
+
+            <div className="space-y-4">
+              {portfolioData.education.map((edu) => (
+                <div key={edu.id} className="relative pl-4 border-l-2 border-[#61dafb]/50 dark:border-[#61dafb]/40">
+                  <h4 className="font-bold text-slate-900 dark:text-slate-100 text-xs sm:text-sm">
+                    {edu.degree}
+                  </h4>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                    {edu.college}
+                  </p>
+                  <div className="mt-1 text-xs font-mono text-slate-500 dark:text-slate-400">
+                    <span>Graduated: {edu.passOut}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Hobbies & Interests */}
+          <motion.div 
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] shadow-xs"
+          >
+            <div className="flex items-center gap-2 mb-2">
+              <Heart size={15} className="text-[#0284c7] dark:text-[#61dafb]" />
+              <h3 className="font-bold text-xs text-slate-900 dark:text-slate-100">
+                Interests & Hobbies
+              </h3>
+            </div>
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+              {portfolioData.personal.hobbies}
+            </p>
+          </motion.div>
         </div>
 
-        <div className="lg:col-span-8">
-          <div className="mb-16">
-            <h3 className="text-xl font-medium mb-6 text-zinc-900 dark:text-zinc-200">Core Expertise</h3>
-            <div className="flex flex-wrap gap-3">
-              {portfolioData.skills.map((skill, index) => {
-                const SkillIcon = skillIcons[skill] ?? Code2;
-                return (
-                  <motion.span
-                  initial={{ opacity: 0, y: 10 }}
+        {/* Right Column: Career Trajectory & Competencies */}
+        <div className="lg:col-span-7 space-y-7">
+          {/* Career Statement */}
+          <motion.div 
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="p-7 rounded-2xl border border-[#61dafb]/20 bg-[#61dafb]/5 dark:bg-[#61dafb]/5"
+          >
+            <div className="flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-[#0284c7] dark:text-[#61dafb] font-bold mb-2.5">
+              <Sparkles size={14} />
+              <span>Career Trajectory & Goals</span>
+            </div>
+            <p className="text-slate-800 dark:text-slate-200 text-sm sm:text-base leading-relaxed">
+              {portfolioData.careerGoal}
+            </p>
+          </motion.div>
+
+          {/* Core Technical Domains with Interactive Hover Scale */}
+          <div>
+            <div className="flex items-center gap-2 mb-5">
+              <Layers size={18} className="text-[#0284c7] dark:text-[#61dafb]" />
+              <h3 className="font-extrabold text-lg sm:text-xl text-slate-900 dark:text-slate-100">
+                Core Competencies & Stack
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {portfolioData.skillCategories.map((cat, idx) => (
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  key={skill}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 text-sm text-zinc-700 dark:text-zinc-300 hover:border-zinc-400 dark:hover:border-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 transition-all cursor-default shadow-2xs"
+                  transition={{ delay: idx * 0.1, duration: 0.4 }}
+                  whileHover={{ y: -3 }}
+                  key={cat.title}
+                  className={`p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] shadow-xs hover:border-[#61dafb]/40 transition-colors ${
+                    idx === 2 ? "sm:col-span-2" : ""
+                  }`}
                 >
-                  <SkillIcon className="h-4 w-4 text-zinc-500 dark:text-zinc-400" />
-                  {skill}
-                </motion.span>
-                );
-              })}
-            </div>
-          </div>
-
-          <div>
-            <h3 className="text-xl font-medium mb-8 text-zinc-900 dark:text-zinc-200">Education</h3>
-            <div className="space-y-8">
-              {portfolioData.education.map((edu, index) => (
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.2 }}
-                  key={edu.id}
-                  className="relative pl-8 before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-zinc-400 dark:before:bg-zinc-700 before:rounded-full after:absolute after:left-[3px] after:top-4 after:bottom-[-24px] after:w-px after:bg-zinc-200 dark:after:bg-zinc-800 last:after:hidden"
-                >
-                  <h4 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">{edu.degree}</h4>
-                  <p className="text-zinc-600 dark:text-zinc-400 mt-1">{edu.college}</p>
-                  <div className="flex gap-4 mt-2 text-sm text-zinc-500 font-mono">
-                    <span>{edu.passOut}</span>
-                    <span>•</span>
-                    <span>{edu.percentage}</span>
-                  </div>
+                  <h4 className="font-bold text-xs sm:text-sm text-slate-900 dark:text-slate-100 mb-3.5 pb-2 border-b border-slate-100 dark:border-slate-800 font-mono text-[#0284c7] dark:text-[#61dafb]">
+                    {cat.title}
+                  </h4>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {cat.items.map((item) => (
+                      <li key={item} className="flex items-center gap-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+                        <CheckCircle2 size={14} className="text-[#0284c7] dark:text-[#61dafb] shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </motion.div>
               ))}
             </div>

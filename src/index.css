@@ -1,18 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
   html {
+    scroll-behavior: smooth;
     color-scheme: light dark;
   }
   body {
-    @apply bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50 antialiased selection:bg-zinc-200 dark:selection:bg-zinc-800 selection:text-zinc-900 dark:selection:text-zinc-50 transition-colors duration-200;
+    @apply bg-slate-50 text-slate-900 dark:bg-[#0b0f19] dark:text-slate-100 antialiased selection:bg-[#61dafb] selection:text-[#0b0f19] transition-colors duration-150;
   }
+}
+
+/* Subtle React engineering grid & ambient glow */
+.react-grid {
+  background-image: radial-gradient(rgba(97, 218, 251, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.dark .react-grid {
+  background-image: radial-gradient(rgba(97, 218, 251, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
