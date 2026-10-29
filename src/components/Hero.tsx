@@ -39,7 +39,7 @@ export function Hero() {
       }
       throw new Error("Local file not reachable, falling back to Google Drive");
     } catch {
-      const resumeId = portfolioData.resumeDriveId || "1lxq2pOpHUDBkNJ2VJng1SfHq8FTl2V1d";
+      const resumeId = portfolioData.resumeDriveId || "1wfUTB0VTWIwI4qge60blpldZIrQHubUH";
       const driveUrl = `https://drive.google.com/uc?export=download&id=${resumeId}`;
       window.open(driveUrl, "_blank", "noopener,noreferrer");
       setDownloadSuccess(true);

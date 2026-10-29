@@ -232,5 +232,5 @@ export const portfolioData = {
   },
   photo: "https://drive.google.com/thumbnail?id=1LhPncJR-nNpD3dYNo4z8ETp7lClDntkZ&sz=w1000",
   resumeLocalPdf: "/Sreehari_S_CV.pdf",
-  resumeDriveId: "1lxq2pOpHUDBkNJ2VJng1SfHq8FTl2V1d",
+  resumeDriveId: "1wfUTB0VTWIwI4qge60blpldZIrQHubUH",
 };
